@@ -1,13 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title th:text="${title}"></title>
 
-    <link th:rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <link type="text/css" th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
+    <script type="application/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
-Hello, world
+<nav class="navbar navbar-light bg-light">
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Kanboard</span>
+    </div>
+</nav>
+<div class="container-fluid">
+    <div class="row">&nbsp;</div>
+    <div class="row">
+        <div class="col col-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Project</h5>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                        content.</p>
+                    <a href="#" class="btn btn-primary">New</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h4>TODO</h4>
+                </div>
+                <div class="card-body">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">Example task</h5>
+                            <p>Hello, world</p>
+                            <div class="flex-box">
+                                <a href="#" class="btn btn-primary text-right">></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Doing</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                        content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Done</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                        content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>
