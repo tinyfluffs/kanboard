@@ -22,14 +22,14 @@ public class ProjectController {
 
     private final ProjectRepository repo;
 
-    @GetMapping(value = "/project")
+    @GetMapping(value = "/api/project")
     public ResponseEntity<List<Project>> list() {
         return ResponseEntity.ok(
                 StreamSupport.stream(repo.findAll().spliterator(), false).toList()
         );
     }
 
-    @PostMapping(value = "/project")
+    @PostMapping(value = "/api/project")
     public ResponseEntity<?> create(@RequestBody Project project) {
         try {
             project = repo.save(project);

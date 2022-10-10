@@ -2,14 +2,17 @@ package se.valueguard.kanboard.jpa;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.jpa.domain.AbstractPersistable;
 
 import javax.persistence.*;
 
 @Data
 @Entity
 @RequiredArgsConstructor
-public class Project extends AbstractPersistable<Long> {
+public class Project {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(unique = true)
     private String name;
