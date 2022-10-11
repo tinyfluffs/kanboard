@@ -1,4 +1,4 @@
-package se.valueguard.kanboard.api;
+package se.valueguard.todo.api;
 
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import se.valueguard.kanboard.jpa.Project;
-import se.valueguard.kanboard.jpa.ProjectRepository;
+import se.valueguard.todo.jpa.Project;
+import se.valueguard.todo.jpa.ProjectRepository;
 
 @RestController
 @RequiredArgsConstructor

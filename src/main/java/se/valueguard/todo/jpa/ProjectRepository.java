@@ -1,4 +1,4 @@
-package se.valueguard.kanboard.jpa;
+package se.valueguard.todo.jpa;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.Modifying;

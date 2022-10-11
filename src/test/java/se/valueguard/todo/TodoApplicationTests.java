@@ -1,13 +1,12 @@
-package se.valueguard.kanboard;
+package se.valueguard.todo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class KanboardApplicationTests {
+class TodoApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
-
+    @Test
+    void contextLoads() {
+    }
 }

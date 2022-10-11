@@ -1,12 +1,12 @@
-package se.valueguard.kanboard;
+package se.valueguard.todo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class KanboardApplication {
+public class TodoApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(KanboardApplication.class, args);
+        SpringApplication.run(TodoApplication.class, args);
     }
 }

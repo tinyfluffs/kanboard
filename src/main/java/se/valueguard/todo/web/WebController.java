@@ -1,4 +1,4 @@
-package se.valueguard.kanboard.web;
+package se.valueguard.todo.web;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -8,7 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
-import se.valueguard.kanboard.jpa.Project;
+import se.valueguard.todo.jpa.Project;
 
 @Controller
 public class WebController {
@@ -26,7 +26,7 @@ public class WebController {
 
     @RequestMapping(value = "/")
     private String Index(Model model) {
-        model.addAttribute("title", "Kanboard");
+        model.addAttribute("title", "Todo List");
         Flux<Project> projects = wc.get().uri("/api/project").retrieve().bodyToFlux(Project.class);
         model.addAttribute("projects", projects.collectList().block());
         return "index";

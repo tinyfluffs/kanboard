@@ -1,4 +1,4 @@
-package se.valueguard.kanboard.jpa;
+package se.valueguard.todo.jpa;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

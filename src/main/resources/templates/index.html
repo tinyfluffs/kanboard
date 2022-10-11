@@ -11,64 +11,40 @@
 <body>
 <nav class="navbar navbar-light bg-light">
     <div class="container-fluid">
-        <span class="navbar-brand mb-0 h1">Kanboard</span>
+        <span class="navbar-brand mb-0 h1">TODO List</span>
     </div>
 </nav>
 <div class="container-fluid">
     <div class="row">&nbsp;</div>
     <div class="row">
-        <div class="col col-3">
-            <div class="card">
-                <div class="card-body">
-                    <h5 class="card-title">Project</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">New</a>
-                </div>
-            </div>
-        </div>
-
-        <div class="col">
+        <div class="col col-4">
             <div class="card">
                 <div class="card-header">
-                    <h4>TODO</h4>
+                    <h5>Create New</h5>
                 </div>
                 <div class="card-body">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Example task</h5>
-                            <p>Hello, world</p>
-                            <div class="flex-box">
-                                <a href="#" class="btn btn-primary text-right">></a>
+                    <form class="row g-3">
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="title" placeholder="Title" aria-label="Title">
+                                <label for="title">Title</label>
                             </div>
                         </div>
-                    </div>
+                        <div class="col-12">
+                            <div class="form-floating">
+                                <textarea class="form-control" id="description" placeholder="Your thoughts..." aria-label="Your thoughts..." rows="25" style="height: 100%;"></textarea>
+                                <label for="description">Your thoughts...</label>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Doing</h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col">
-            <div class="card">
-                <div class="card-header">
-                    <h4>Done</h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                        content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
+        <div class="col col-8">
+            <h2 class="card-title">Notes</h2>
         </div>
     </div>
 </div>
