@@ -67,8 +67,7 @@
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-
-                                                <form class="row g-1" th:action="'/edit/' + ${note.id}" method="post">
+                                                <div class="row g-1">
                                                     <div class="col-12">
                                                         <div class="form-floating mb-3">
                                                             <input type="text" class="form-control" id="title" name="title" placeholder="Title"
@@ -84,8 +83,7 @@
                                                             <label for="content">Your thoughts...</label>
                                                         </div>
                                                     </div>
-                                                </form>
-
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
