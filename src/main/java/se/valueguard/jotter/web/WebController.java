@@ -49,6 +49,22 @@ public class WebController {
         return "redirect:/";
     }
 
+    @RequestMapping(value = "/edit/{id}", method = RequestMethod.POST)
+    private String Edit(@PathVariable Long id, @RequestParam(name = "title") String title, @RequestParam(name = "content") String content) {
+        Note note = new Note();
+        note.setId(id);
+        note.setTitle(title);
+        note.setContent(content);
+
+        this.wc.put()
+                .uri("/api/note/" + id)
+                .body(Mono.just(note), Note.class)
+                .retrieve()
+                .bodyToMono(Note.class).block();
+
+        return "redirect:/";
+    }
+
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
     private String Delete(@PathVariable Long id) {
         this.wc.delete()

@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Jotter - Notes</title>
+    <title>Jotter - Note Taking</title>
 
     <link type="text/css" th:rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css} "/>
-    <script type="application/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </head>
 <body>
 <nav class="navbar navbar-light bg-light">
@@ -26,13 +25,16 @@
                     <form class="row g-3" action="/create" method="post">
                         <div class="col-12">
                             <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="title" name="title" placeholder="Title" aria-label="Title">
+                                <input type="text" class="form-control" id="title" name="title" placeholder="Title"
+                                       aria-label="Title">
                                 <label for="title">Title</label>
                             </div>
                         </div>
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control" id="content" name="content" placeholder="Your thoughts..." aria-label="Your thoughts..." rows="25" style="height: 100%;"></textarea>
+                                <textarea class="form-control" id="content" name="content"
+                                          placeholder="Your thoughts..." aria-label="Your thoughts..." rows="25"
+                                          style="height: 100%;"></textarea>
                                 <label for="content">Your thoughts...</label>
                             </div>
                         </div>
@@ -52,10 +54,48 @@
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title" th:text="${note.title}"></h5>
-                            <p class="card-text" th:text="${note.content}"></p>
+                            <p class="card-text"
+                               th:utext="${#strings.replace(#strings.escapeXml(note.content),'&#10;','&lt;br&gt;')}"></p>
                             <div class="text-end">
-                                <a th:href="'/edit/' + ${note.id}" class="card-link">Edit</a>
-                                <a th:href="'/delete/' + ${note.id}" class="card-link">Delete</a>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" th:data-bs-target="'#editModal' + ${note.id}">Edit</button>
+
+                                <div class="modal fade" th:id="'editModal' + ${note.id}" tabindex="-1" aria-labelledby="editModal" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <form class="modal-content" th:action="'/edit/' + ${note.id}" method="post">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="editModal">Edit Note</h5>
+                                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+
+                                                <div class="row g-1" action="/edit/${note.id}" method="post">
+                                                    <div class="col-12">
+                                                        <div class="form-floating mb-3">
+                                                            <input type="text" class="form-control" id="title" name="title" placeholder="Title"
+                                                                   aria-label="Title" th:value="${note.title}">
+                                                            <label for="title">Title</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-12">
+                                                        <div class="form-floating">
+                                <textarea class="form-control" id="content" name="content"
+                                          placeholder="Your thoughts..." aria-label="Your thoughts..." rows="10"
+                                          style="height: 100%;" th:text="${note.content}"></textarea>
+                                                            <label for="content">Your thoughts...</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Save changes</button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <a th:href="'/delete/' + ${note.id}" class="btn btn-primary">Delete</a>
                             </div>
                         </div>
                     </div>
@@ -64,5 +104,6 @@
         </div>
     </div>
 </div>
+<script type="application/javascript" th:src="@{/webjars/bootstrap/js/bootstrap.bundle.min.js}"></script>
 </body>
 </html>

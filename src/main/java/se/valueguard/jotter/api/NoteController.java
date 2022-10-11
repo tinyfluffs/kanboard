@@ -36,6 +36,27 @@ public class NoteController {
         return Mono.just(note);
     }
 
+    @GetMapping(value = "/api/note/{id}")
+    public Mono<Note> read(@PathVariable Long id) {
+        Optional<Note> note = repo.findById(id);
+        if (note.isPresent()) {
+            return Mono.just(note.get());
+        }
+        return Mono.empty();
+    }
+
+    @PutMapping(value = "/api/note/{id}")
+    public Mono<Note> update(@PathVariable Long id, @RequestBody Note note) {
+        try {
+            repo.updateTitleById(note.getTitle(), id);
+            repo.updateContentById(note.getContent(), id);
+        } catch (IllegalArgumentException ex) {
+            log.warn("", ex);
+            return Mono.error(ex);
+        }
+        return Mono.just(note);
+    }
+
     @DeleteMapping(value = "/api/note/{id}")
     public ResponseEntity<Long> delete(@PathVariable Long id) {
         Optional<Note> opNote = repo.findById(id);

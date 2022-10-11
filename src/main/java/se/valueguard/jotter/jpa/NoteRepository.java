@@ -12,9 +12,14 @@ public interface NoteRepository extends CrudRepository<Note, Long> {
 
     @Transactional
     @Modifying
-    @Query("update Note p set p.title = ?1 where p.id = ?2")
+    @Query("update Note n set n.title = ?1 where n.id = ?2")
     int updateTitleById(String title, @NonNull Long id);
 
-    @Query("select p from Note p where p.title = :title")
+    @Transactional
+    @Modifying
+    @Query("update Note n set n.content = ?1 where n.id = ?2")
+    int updateContentById(String content, @NonNull Long id);
+
+    @Query("select n from Note n where n.title = :title")
     Note findByTitle(String title);
 }

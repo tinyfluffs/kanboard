@@ -17,6 +17,6 @@ public class Note {
     @Column
     private String title;
 
-    @Column
+    @Column(columnDefinition="BLOB")
     private String content;
 }
