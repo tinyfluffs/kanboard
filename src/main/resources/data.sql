@@ -1,1 +1,1 @@
-INSERT INTO project(id, name, description) VALUE (default, 'Test Project', 'This is a test project');
+INSERT INTO note(id, title, content) VALUE (default, 'Test note', 'This is a test note');

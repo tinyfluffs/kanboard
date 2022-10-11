@@ -38,7 +38,7 @@ local.properties
 .target
 
 # Tern plugin
-.tern-project
+.tern-note
 
 # TeXlipse plugin
 .texlipse
@@ -58,9 +58,9 @@ local.properties
 .scala_dependencies
 .worksheet
 
-# Uncomment this line if you wish to ignore the project description file.
+# Uncomment this line if you wish to ignore the note description file.
 # Typically, this file would be tracked if it contains build/dependency configurations:
-#.project
+#.note
 
 ### Eclipse Patch ###
 # Spring Boot Tooling
@@ -94,7 +94,7 @@ cmake-build-*/
 # Mongo Explorer plugin
 .idea/**/mongoSettings.xml
 
-# File-based project format
+# File-based note format
 *.iws
 
 # IntelliJ
@@ -189,7 +189,7 @@ fabric.properties
 
 # Mongo Explorer plugin
 
-# File-based project format
+# File-based note format
 
 # IntelliJ
 
@@ -335,12 +335,12 @@ gradle-app.setting
 # Avoid ignore Gradle wrappper properties
 !gradle-wrapper.properties
 
-# Cache of project
+# Cache of note
 .gradletasknamecache
 
 # Eclipse Gradle plugin generated files
 # Eclipse Core
-.project
+.note
 # JDT-specific (Eclipse Java Development Tools)
 .classpath
 

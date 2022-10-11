@@ -1,4 +1,4 @@
-package se.valueguard.todo.jpa;
+package se.valueguard.jotter.jpa;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.Modifying;
@@ -8,13 +8,13 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
-public interface ProjectRepository extends CrudRepository<Project, Long> {
+public interface NoteRepository extends CrudRepository<Note, Long> {
 
     @Transactional
     @Modifying
-    @Query("update Project p set p.name = ?1 where p.id = ?2")
-    int updateNameById(String name, @NonNull Long id);
+    @Query("update Note p set p.title = ?1 where p.id = ?2")
+    int updateTitleById(String title, @NonNull Long id);
 
-    @Query("select p from Project p where p.name = :name")
-    Project findByName(String name);
+    @Query("select p from Note p where p.title = :title")
+    Note findByTitle(String title);
 }

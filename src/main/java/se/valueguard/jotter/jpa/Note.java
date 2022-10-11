@@ -1,4 +1,4 @@
-package se.valueguard.todo.jpa;
+package se.valueguard.jotter.jpa;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -8,14 +8,15 @@ import javax.persistence.*;
 @Data
 @Entity
 @RequiredArgsConstructor
-public class Project {
+public class Note {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
-    private String name;
+    @Column
+    private String title;
 
-    private String description;
+    @Column
+    private String content;
 }
